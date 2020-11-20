@@ -1,0 +1,29 @@
+<div class="container">
+    <form class="search-form" onsubmit="return false">
+        <mat-form-field class="search-full-width">
+        <input 
+        matInput 
+        name="search"
+        type="text" 
+        [(ngModel)]="questionFilter" 
+        (change)="filterUpdate($event)" 
+        placeholder="Procurar nas questões disponíveis">
+        </mat-form-field>
+    </form>
+
+    <mat-card class="question-card" *ngFor="let question of allQuestionsFiltered">
+        <mat-card-content class="question-card-content">
+            <div class="question-content">
+                <p>{{question.description}}</p>
+                <div class="answers">
+                    <button mat-raised-button color="primary">A){{question.answerA}}</button>
+                    <button mat-raised-button color="primary">B){{question.answerB}}</button>
+                    <button mat-raised-button color="primary">C){{question.answerC}}</button>
+                    <button mat-raised-button color="primary">D){{question.answerD}}</button>
+                    <button mat-raised-button color="primary" *ngIf="question.answerE">E){{question.answerE}}</button>
+                </div>
+            </div>
+            <img class="question-image" [src]="question.questionImageUrl" alt="">
+        </mat-card-content>
+    </mat-card>
+</div>

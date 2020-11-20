@@ -1,0 +1,61 @@
+.questions-selected-cards {
+    display: flex;
+    justify-content: space-around;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+.checkbox-section {
+    margin-left: 10px;
+    display: flex;
+    align-content: center;
+    align-items: center;
+    height: 60px;
+}
+
+.checkbox-margin {
+    margin: 0 10px;
+}
+
+.subtitle {
+    width: 100%;
+    margin-left: 10px;
+}
+
+.question-card {
+    width: 100%;
+    margin-left: 10px;
+    margin-right: 10px;
+    margin-bottom: 25px;
+    padding: 10px;
+    border-radius: 10px;
+    border: solid 1px black;
+}
+
+.question-card-content {
+    display: flex;
+}
+
+.question-content {
+    display: flex;
+    flex-direction: column;
+    white-space: pre-line;
+}
+
+.question-content h3 {
+    font-weight: 500;
+}
+
+.answers {
+    height: 250px;
+    min-width: 50px;
+    max-width: 150px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.question-image {
+    border-radius: 10px;
+    margin-left: 5px;
+}

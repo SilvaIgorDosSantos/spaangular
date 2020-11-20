@@ -1,0 +1,19 @@
+.home-selected {
+    display: flex;
+    justify-content: center;
+}
+
+.container {
+    width: 80vw;
+}
+
+.exams {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.exam-image {
+    height: 200px;
+    width: 150px;
+}

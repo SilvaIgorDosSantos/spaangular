@@ -1,0 +1,28 @@
+<div class="container">
+    <h2 class="subtitle">Todas as questões disponíveis</h2>
+    <section class="checkbox-section">
+        <mat-checkbox class="checkbox-margin" id='1' [checked]="math" (change)="updateQuestions($event)">Matemática</mat-checkbox>
+        <mat-checkbox class="checkbox-margin" id='2' [checked]="physics" (change)="updateQuestions($event)">Física</mat-checkbox>
+        <mat-checkbox class="checkbox-margin" id='3' [checked]="chemistry" (change)="updateQuestions($event)">Química</mat-checkbox>
+    </section>
+    <div class="questions-selected-cards" *ngFor="let exam of exams">
+        <ng-container *ngFor="let question of exam.questions">
+            <mat-card class="question-card" *ngIf="subjects.includes(question.subject)">
+                <mat-card-content class="question-card-content">
+                    <div class="question-content">
+                        <h3>{{exam.university}} - {{exam.year}}</h3>
+                        <p>{{question.description}}</p>
+                        <div class="answers">
+                            <button mat-raised-button color="primary">A){{question.answerA}}</button>
+                            <button mat-raised-button color="primary">B){{question.answerB}}</button>
+                            <button mat-raised-button color="primary">C){{question.answerC}}</button>
+                            <button mat-raised-button color="primary">D){{question.answerD}}</button>
+                            <button mat-raised-button color="primary" *ngIf="question.answerE">E){{question.answerE}}</button>
+                        </div>
+                    </div>
+                    <img class="question-image" [src]="question.questionImageUrl" alt="">
+                </mat-card-content>
+            </mat-card>
+        </ng-container>
+    </div>
+</div>

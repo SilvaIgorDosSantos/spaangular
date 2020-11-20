@@ -1,0 +1,39 @@
+<div class="container">
+    <ng-container *ngIf="examSelected; then thenBlock; else elseBlock"></ng-container>
+    <ng-template #thenBlock>
+        <h2>Questões da {{selectedExam.university}} - {{selectedExam.year}}</h2>
+        <mat-card class="question-card" *ngFor="let question of selectedExam.questions">
+            <mat-card-content class="question-card-content">
+                <div class="question-content">
+                    <p>{{question.description}}</p>
+                    <div class="answers">
+                        <button mat-raised-button color="primary" type="button" [disabled]="question.done" (click)="test(question.correctAnswer==='A',question)">A){{question.answerA}}</button>
+                        <button mat-raised-button color="primary" type="button" [disabled]="question.done" (click)="test(question.correctAnswer==='B',question)">B){{question.answerB}}</button>
+                        <button mat-raised-button color="primary" type="button" [disabled]="question.done" (click)="test(question.correctAnswer==='C',question)">C){{question.answerC}}</button>
+                        <button mat-raised-button color="primary" type="button" [disabled]="question.done" (click)="test(question.correctAnswer==='D',question)">D){{question.answerD}}</button>
+                        <button mat-raised-button color="primary" type="button" [disabled]="question.done" (click)="test(question.correctAnswer==='E',question)" *ngIf="question.answerE">E){{question.answerE}}</button>
+                    </div>
+                </div>
+                <img class="question-image" [src]="question.questionImageUrl" alt="" *ngIf="question.questionImageUrl">
+                <div class="result">
+                    <div *ngIf="question.done">
+                        <ng-container *ngIf="question.correct; then thenBlock; else elseBlock"></ng-container>
+                        <ng-template #thenBlock>
+                            <mat-icon>done</mat-icon>
+                        </ng-template>
+                        <ng-template #elseBlock>
+                            <mat-icon>close</mat-icon>
+                        </ng-template>
+                    </div>
+                </div>
+            </mat-card-content>
+        </mat-card>
+    </ng-template>
+
+    <ng-template #elseBlock>
+        <h2 class="subtitle">Vestibulares disponíveis para consulta</h2>
+        <div class="exam-card" *ngFor="let exam of exams">
+            <img (click)="onSelect(exam)" class="exam-image" [src]="exam.examImageUrl" alt="">
+        </div>
+    </ng-template>
+</div>

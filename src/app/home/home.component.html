@@ -1,0 +1,32 @@
+<spa-header (pageToShow)="pageToShow($event)"></spa-header>
+
+<div class="home-selected" *ngIf="isHomeSelected">
+    <div class="container">
+        <main>
+            <p>
+                Bem vindo ao POREDU, portal da educação, uma plataforma repleta de diversos vestibulares de anos 
+                anteriores para ajudar os estudantes brasileiros em seus estudos.
+            </p>
+            <p>
+                Em nossa plataforma, atualmente, temos os seguintes vestibulares disponíveis:
+            </p>
+
+            <div class="exams">
+                <img class="exam-image" [src]="exam.examImageUrl" alt="" *ngFor="let exam of exams">
+            </div>
+        </main>
+    </div>
+</div>
+
+<div class="exams-selected" *ngIf="isExamsSelected">
+    <spa-exams></spa-exams>
+
+</div>
+
+<div class="questions-selected" *ngIf="isQuestionsSelected">
+    <spa-questions></spa-questions>
+</div>
+
+<div class="search-selected" *ngIf="isSearchSelected">
+    <spa-search></spa-search>
+</div>
